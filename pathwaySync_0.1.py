@@ -44,7 +44,7 @@ if page == "Home Page":
 
     # Team Section
     st.header("Team Page")
-    st.image("C:\\Users\\Admin\\Downloads\\Streamlit\\WhatsApp Image 2025-05-08 at 9.57.26 PM.jpeg", width=150, caption="Avanti Pandit")
+    st.image("./WhatsApp Image 2025-05-08 at 9.57.26 PM.jpeg", width=150, caption="Avanti Pandit")
     st.subheader("Avanti Pandit")
     st.write("""
     MSc Bioinformatics student passionate about exploring the interface between computational biology and molecular medicine.
