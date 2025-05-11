@@ -16,7 +16,7 @@ page = st.sidebar.radio("Select Page", ["Home Page", "Pathway Explorer", "Tutori
 
 if page == "Home Page":
     st.title("PathwaySync: Home Page")
-   st.image("helix-6189400_1920.jpg", use_container_width=True, caption="Decoding Molecular Pathways")
+    st.image("helix-6189400_1920.jpg", use_container_width=True, caption="Decoding Molecular Pathways")
     # About Section
     st.header("About Page")
     st.markdown("""
