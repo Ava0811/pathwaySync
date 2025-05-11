@@ -10,7 +10,6 @@ import py3Dmol
 from Bio.Align import PairwiseAligner
 import streamlit as st
 import base64
-
 def set_background(image_file):
     with open(image_file, "rb") as file:
         encoded = base64.b64encode(file.read()).decode()
@@ -76,9 +75,12 @@ if page == "Home Page":
     with team_tab:
         st.header("Our Team")
         col1, col2 = st.columns([1, 3])
-       with col1:
-            st.image("C:\\Users\\Admin\\Downloads\\Streamlit\\WhatsApp Image 2025-05-08 at 9.57.26 PM.jpeg", width=150, caption="Avanti Pandit")
-        with col2:
+       from PIL import Image
+
+with col1:
+    image = Image.open("avanti.png")  # Use the actual image filename
+    st.image(image, width=150, caption="Avanti Pandit")
+
             st.subheader("Avanti Pandit")
             st.write("""
             MSc Bioinformatics student passionate about exploring the interface between computational biology and molecular medicine.
