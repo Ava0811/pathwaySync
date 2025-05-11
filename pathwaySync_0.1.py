@@ -9,6 +9,8 @@ import re
 import py3Dmol
 from Bio.Align import PairwiseAligner
 import streamlit as st
+import base64
+
 def set_background(image_file):
     with open(image_file, "rb") as file:
         encoded = base64.b64encode(file.read()).decode()
