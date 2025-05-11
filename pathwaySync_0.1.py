@@ -75,12 +75,11 @@ if page == "Home Page":
     with team_tab:
         st.header("Our Team")
         col1, col2 = st.columns([1, 3])
-       from PIL import Image
-
-with col1:
-    image = Image.open("team_avanti.jpeg")  # Use the actual image filename
-    st.image(image, width=150, caption="Avanti Pandit")
-
+        from PIL import Image
+        with col1:
+           image = Image.open("team_avanti.jpeg")  # Use the actual image filename
+           st.image(image, width=150, caption="Avanti Pandit") 
+        with col2:
             st.subheader("Avanti Pandit")
             st.write("""
             MSc Bioinformatics student passionate about exploring the interface between computational biology and molecular medicine.
