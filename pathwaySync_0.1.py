@@ -16,7 +16,7 @@ page = st.sidebar.radio("Select Page", ["Home Page", "Pathway Explorer", "Tutori
 
 if page == "Home Page":
     st.title("PathwaySync: Home Page")
-
+    st.image("helix-6189400_1920.jpg", use_column_width=True, caption="Decoding Molecular Pathways")
     # About Section
     st.header("About Page")
     st.markdown("""
@@ -51,7 +51,7 @@ if page == "Home Page":
     I developed **PathwaySync** to help researchers and students explore biological pathways with ease.
     """)
 
-    st.markdown("""**Acknowledgement**
+    st.markdown("""**Acknowledgement:**
     We would like to express our sincere gratitude to Dr. Kushagra Kashyap for his invaluable guidance, support, and encouragement throughout the development of this mini-project. His insights and mentorship were instrumental in shaping PathwaySync into a successful tool""")
 
 elif page == "Tutorial":
