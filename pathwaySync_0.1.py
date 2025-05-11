@@ -9,6 +9,35 @@ import re
 import py3Dmol
 from Bio.Align import PairwiseAligner
 import streamlit as st
+def set_background(image_file):
+    with open(image_file, "rb") as file:
+        encoded = base64.b64encode(file.read()).decode()
+    css = f"""
+    <style>
+    .stApp {{
+        background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+                          url("data:image/jpeg;base64,{encoded}");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        color: white;
+    }}
+    .block-container {{
+        padding: 2rem;
+    }}
+    h1, h2, h3, h4, h5, h6 {{
+        color: white !important;
+    }}
+    .stMarkdown p {{
+        color: #f0f0f0;
+    }}
+    </style>
+    """
+    st.markdown(css, unsafe_allow_html=True)
+
+# Call this once at the top-level of your app
+set_background("helix-6189400_1920.jpg")
 
 # Sidebar navigation
 st.sidebar.header("Navigation")
@@ -16,44 +45,47 @@ page = st.sidebar.radio("Select Page", ["Home Page", "Pathway Explorer", "Tutori
 
 if page == "Home Page":
     st.title("PathwaySync: Home Page")
-    st.image("helix-6189400_1920.jpg", use_container_width=True, caption="Decoding Molecular Pathways")
-    # About Section
-    st.header("About Page")
-    st.markdown("""
-    Welcome to **PathwaySync**!
 
-    This app helps you:
-    - Explore molecular pathways from **KEGG** and **Reactome**
-    - Visualize interactive 3D protein structures
-    - Get AI-driven enzyme suggestions
+    about_tab, team_tab = st.tabs(["About", "Team"])
 
-    **Objectives:**
-    - Provide an integrated platform for pathway exploration
-    - Help researchers visualize and analyze molecular data
-    - Enable easy data export in JSON or CSV
+    with about_tab:
+        st.header("About PathwaySync")
+        st.markdown("""
+        Welcome to **PathwaySync**!
 
-    **Features:**
-    1) Interactive pathway graphs  
-    2) Protein 3D structure viewer  
-    3) AI enzyme suggestion tool  
-    4) Data export options  
-    5) Simple, user-friendly interface  
-    """)
+        This app helps you:
+        - Explore molecular pathways from **KEGG** and **Reactome**
+        - Visualize interactive 3D protein structures
+        - Get AI-driven enzyme suggestions
 
-    st.markdown("---")
+        **Objectives:**
+        - Provide an integrated platform for pathway exploration
+        - Help researchers visualize and analyze molecular data
+        - Enable easy data export in JSON or CSV
 
-    # Team Section
-    st.header("Team Page")
-    st.image("./WhatsApp Image 2025-05-08 at 9.57.26 PM.jpeg", width=150, caption="Avanti Pandit")
-    st.subheader("Avanti Pandit")
-    st.write("""
-    MSc Bioinformatics student passionate about exploring the interface between computational biology and molecular medicine.
-    I developed **PathwaySync** to help researchers and students explore biological pathways with ease.
-    """)
+        **Features:**
+        1) Interactive pathway graphs  
+        2) Protein 3D structure viewer  
+        3) AI enzyme suggestion tool  
+        4) Data export options  
+        5) Simple, user-friendly interface  
+        """)
 
-    st.markdown("""**Acknowledgement:**
-    We would like to express our sincere gratitude to Dr. Kushagra Kashyap for his invaluable guidance, support, and encouragement throughout the development of this mini-project. His insights and mentorship were instrumental in shaping PathwaySync into a successful tool""")
+    with team_tab:
+        st.header("Our Team")
+        col1, col2 = st.columns([1, 3])
+        with col1:
+            st.image("C:\\Users\\Admin\\Downloads\\Streamlit\\WhatsApp Image 2025-05-08 at 9.57.26 PM.jpeg", width=150, caption="Avanti Pandit")
+        with col2:
+            st.subheader("Avanti Pandit")
+            st.write("""
+            MSc Bioinformatics student passionate about exploring the interface between computational biology and molecular medicine.
+            I developed **PathwaySync** to help researchers and students explore biological pathways with ease.
+            """)
 
+        st.markdown("""**Acknowledgement:**  
+        We would like to express our sincere gratitude to Dr. Kushagra Kashyap for his invaluable guidance and support throughout this mini-project.
+        """)
 elif page == "Tutorial":
     # Existing tutorial section
     st.header("PathwaySync Tutorial")
