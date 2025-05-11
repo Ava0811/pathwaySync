@@ -78,7 +78,7 @@ if page == "Home Page":
        from PIL import Image
 
 with col1:
-    image = Image.open("avanti.png")  # Use the actual image filename
+    image = Image.open("team_avanti.jpeg")  # Use the actual image filename
     st.image(image, width=150, caption="Avanti Pandit")
 
             st.subheader("Avanti Pandit")
