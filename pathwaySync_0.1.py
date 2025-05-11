@@ -76,7 +76,7 @@ if page == "Home Page":
     with team_tab:
         st.header("Our Team")
         col1, col2 = st.columns([1, 3])
-        with col1:
+       with col1:
             st.image("C:\\Users\\Admin\\Downloads\\Streamlit\\WhatsApp Image 2025-05-08 at 9.57.26 PM.jpeg", width=150, caption="Avanti Pandit")
         with col2:
             st.subheader("Avanti Pandit")
